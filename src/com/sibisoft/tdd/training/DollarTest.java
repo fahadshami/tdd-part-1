@@ -6,11 +6,20 @@ import org.junit.Test;
 
 public class DollarTest {
 
+//	@Test
+//	public void testMultiplication() {
+//		Dollar five = new Dollar(5);
+//		five.times(2);
+//		assertEquals(10, five.getAmount());
+//	}
+	
 	@Test
-	public void testMultiplication() {
+	public void testMultiplication(){
 		Dollar five = new Dollar(5);
-		five.times(2);
-		assertEquals(10, five.getAmount());
+		Dollar result = five.times(2);
+		assertEquals(10, result.getAmount());
+		result = five.times(4);
+		assertEquals(20,result.getAmount());
 	}
 
 }
