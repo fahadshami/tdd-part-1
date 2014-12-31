@@ -21,5 +21,9 @@ public class DollarTest {
 		result = five.times(4);
 		assertEquals(20,result.getAmount());
 	}
-
+	@Test
+	public void testEquality(){
+		assertTrue(new Dollar(5).equals(new Dollar(5)));
+		assertFalse(new Dollar(4).equals(new Dollar(5)));// introducing triangulation
+	}
 }

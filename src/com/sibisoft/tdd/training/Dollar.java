@@ -16,5 +16,9 @@ public class Dollar {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-
+	@Override
+	public boolean equals(Object obj) {
+		Dollar dollar = (Dollar) obj;
+		return dollar.amount==this.amount;
+	}
 }
