@@ -1,19 +1,13 @@
 package com.sibisoft.tdd.training;
 
-public class Franc {
-	
-	int amount;
+public class Franc extends Money {
 	
 	public Franc(int amount)
 	{
-		this.amount = amount;
+		super(amount);
 	}
 	Franc times(int multiplier){
-		return new Franc(amount * multiplier);
+		return new Franc(this.amount * multiplier);
 	}
-	@Override
-	public boolean equals(Object obj) {
-		Franc fran = (Franc)obj;
-		return fran.amount==this.amount;
-	}
+	
 }
