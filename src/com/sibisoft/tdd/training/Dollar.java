@@ -6,8 +6,6 @@ public class Dollar extends Money{
 		super(amount, currency);
 	}
 	
-	public Money times(int multiplier){
-		return Money.Dollar(amount * multiplier);
-	}
+	
 	
 }

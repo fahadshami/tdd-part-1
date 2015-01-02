@@ -1,13 +1,15 @@
 package com.sibisoft.tdd.training;
 
-public abstract class Money {
+public class Money {
 	protected int amount;
 	protected String currency;
-	
-	abstract Money times(int multiplier);
+
 	Money(int amount, String currency){
 		this.amount = amount;
 		this.currency = currency;
+	}
+	public Money times(int multiplier){
+		return new Money(amount * multiplier,currency);
 	}
 	static Money Dollar(int amount)
 	{
@@ -19,10 +21,15 @@ public abstract class Money {
 	@Override
 	public boolean equals(Object obj) {
 		Money money = (Money) obj;
-		return (money.amount == amount && getClass().equals(money.getClass()));
+		return (money.amount == amount && money.getCurrency().equals(getCurrency()));
 	}
 	public String getCurrency()
 	{
 		return currency ;
+	}
+	@Override
+	public String toString() {
+		
+		return amount+""+currency;
 	}
 }
