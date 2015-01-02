@@ -1,7 +1,7 @@
 package com.sibisoft.tdd.training;
 
 import static org.junit.Assert.*;
-
+import com.sibisoft.tdd.training.Bank;
 import org.junit.Test;
 
 public class DollarTest {
@@ -37,10 +37,13 @@ public class DollarTest {
 		assertEquals("CHD",Money.Franc(5).getCurrency());
 		assertNotEquals("USD", Money.Franc(4).getCurrency());
 	}
-	
+	@Test
 	public void testSimpleAddition(){
-		Money sum = Money.Dollar(5).plus(Money.Dollar(5));
-		assertEquals(10, sum.amount);
+		Money five = Money.Dollar(5);
+		Expression sum = five.plus(five);
+		Bank bank = new Bank();
+		Money reduced = bank.reduce(sum,"USD");
+		assertEquals(Money.Dollar(10), reduced);
 	}
 	
 	
