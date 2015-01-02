@@ -29,7 +29,10 @@ public class Money {
 	}
 	@Override
 	public String toString() {
-		
 		return amount+""+currency;
 	}
+	public Money plus(Money money){
+		return new Money(money.amount+this.amount,currency);
+	}
+	
 }

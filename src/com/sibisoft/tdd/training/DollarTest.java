@@ -38,7 +38,10 @@ public class DollarTest {
 		assertNotEquals("USD", Money.Franc(4).getCurrency());
 	}
 	
-	
+	public void testSimpleAddition(){
+		Money sum = Money.Dollar(5).plus(Money.Dollar(5));
+		assertEquals(10, sum.amount);
+	}
 	
 	
 	
