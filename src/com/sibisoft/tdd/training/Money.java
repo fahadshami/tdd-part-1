@@ -13,10 +13,10 @@ public class Money {
 	}
 	static Money Dollar(int amount)
 	{
-		return new Dollar(amount,"USD");
+		return new Money(amount,"USD");
 	}
 	static Money Franc(int amount){
-		return new Franc(amount,"CHD");
+		return new Money(amount,"CHD");
 	}
 	@Override
 	public boolean equals(Object obj) {
