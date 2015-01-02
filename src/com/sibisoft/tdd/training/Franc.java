@@ -2,12 +2,13 @@ package com.sibisoft.tdd.training;
 
 public class Franc extends Money {
 	
-	public Franc(int amount)
+	public Franc(int amount, String currency)
 	{
-		super(amount);
+		super(amount, currency);
 	}
 	public Money times(int multiplier){
-		return new Franc(amount * multiplier);
+		return Money.Franc(amount * multiplier);
 	}
+	
 	
 }
