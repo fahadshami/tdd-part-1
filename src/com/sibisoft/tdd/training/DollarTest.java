@@ -86,4 +86,29 @@ public class DollarTest {
 		Money result= bank.reduce(fiveBucks.plus(tenFrancs), "USD");
 		assertEquals(Money.Dollar(10), result);
 	}
+	@Test
+	public void testSumPlusMoney(){
+		Expression fiveBucks = Money.Dollar(5);
+		Expression tenFrancs= Money.Franc(10);
+		Bank bank= new Bank();
+		bank.addRate("CHD", "USD", 2);
+		Expression sum = new Sum(fiveBucks,tenFrancs).plus(fiveBucks);
+		Money result = bank.reduce(sum, "USD");
+		assertEquals(Money.Dollar(15), result);
+	}
+	@Test
+	public void testSumTimes(){
+		Expression fiveBucks = Money.Dollar(5);
+		Expression tenFrancs= Money.Franc(10);
+		Bank bank= new Bank();
+		bank.addRate("CHD", "USD", 2);
+		Expression sum = new Sum(fiveBucks,tenFrancs).times(2);
+		Money result = bank.reduce(sum, "USD");
+		assertEquals(Money.Dollar(20), result);
+	}
+	@Test
+	public void testPlusSameCurrencyReturnsMoney(){
+		Expression sum = Money.Dollar(1).plus(Money.Dollar(1));
+		assertTrue(sum instanceof Expression);//sum is instance of Expression
+	}
 }
