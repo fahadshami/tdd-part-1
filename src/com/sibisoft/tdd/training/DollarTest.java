@@ -66,7 +66,16 @@ public class DollarTest {
 		Money result = bank.reduce(Money.Dollar(1), "USD");
 		assertEquals(Money.Dollar(1), result);
 	}
-	
-	
+	@Test
+	public void testReduceMoneyDifferentCurrency(){
+		Bank bank = new Bank();
+		bank.addRate("CHD","USD",2);
+		Money result = bank.reduce(Money.Franc(2),"USD");
+		assertEquals(Money.Dollar(1),result);
+	}
+	@Test
+	public void testIdentityRate(){
+		assertEquals(1, new Bank().rate("USD", "USD"));
+	}
 	
 }
