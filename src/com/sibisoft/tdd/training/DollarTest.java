@@ -45,6 +45,27 @@ public class DollarTest {
 		Money reduced = bank.reduce(sum,"USD");
 		assertEquals(Money.Dollar(10), reduced);
 	}
+	@Test
+	public void testPlusReturnSum(){
+		Money five = Money.Dollar(5);
+		Expression result = five.plus(five);
+		Sum sum = (Sum) result;
+		assertEquals(five, sum.augend);
+		assertEquals(five, sum.addend);
+	}
+	@Test
+	public void testReduceSum(){
+		Expression sum = new Sum(Money.Dollar(3),Money.Dollar(4));
+		Bank bank = new Bank();
+		Money result = bank.reduce(sum, "USD");
+		assertEquals(Money.Dollar(7), result);
+	}
+	@Test 
+	public void testReduceMoney(){
+		Bank bank = new Bank();
+		Money result = bank.reduce(Money.Dollar(1), "USD");
+		assertEquals(Money.Dollar(1), result);
+	}
 	
 	
 	

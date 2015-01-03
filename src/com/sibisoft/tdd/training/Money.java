@@ -32,7 +32,9 @@ public class Money implements Expression{
 		return amount+""+currency;
 	}
 	public Expression plus(Money money){
-		return new Money(money.amount+this.amount,currency);
+		return new Sum(this,money);
 	}
-	
+	public Money reduce(String to){
+		return this;
+	}
 }
